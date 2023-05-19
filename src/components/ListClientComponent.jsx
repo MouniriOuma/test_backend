@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ClientService from '../services/ClientService';
 import { Link, useNavigate } from 'react-router-dom';
-//import { toast } from 'react-toastify';
+
 
 function ListClientComponent() {
     const [clients, setClients] = React.useState([]);
@@ -19,13 +19,14 @@ function ListClientComponent() {
           .then(() => {
             setClients((prevClients) =>
               prevClients.filter((client) => client.ICE !== id)
+              
             );
-           // toast.success('Client deleted successfully'); // Display success notification
+            window.location.reload();
           })
           .catch((error) => {
             // Handle the error here
             console.log('Error deleting client:', error);
-            //toast.error('Failed to delete client'); // Display error notification
+            
           });
       };
       
